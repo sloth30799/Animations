@@ -1,8 +1,8 @@
-import WaterDropGrid from "./views/WaterDropGrid"
+import Block from "./views/Block"
 
 const App = () => {
   return (
-    <WaterDropGrid />
+    <Block />
   )
 }
 
