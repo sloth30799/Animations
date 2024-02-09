@@ -1,9 +1,7 @@
-import Block from "./views/Block"
+import AnimeDemo from "./views/animejs-demo/AnimeDemo"
 
 const App = () => {
-  return (
-    <Block />
-  )
+    return <AnimeDemo />
 }
 
 export default App
