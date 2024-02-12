@@ -1,7 +1,7 @@
-import AnimeDemo from "./views/animejs-demo/AnimeDemo"
+import Layout from "./views/bento-homePage/Layout"
 
 const App = () => {
-    return <AnimeDemo />
+    return <Layout />
 }
 
 export default App

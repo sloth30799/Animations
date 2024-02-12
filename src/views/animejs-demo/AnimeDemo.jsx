@@ -62,6 +62,7 @@ const AnimeDemo = () => {
             translateX: 250,
             scale: 1.5,
             rotate: "1turn",
+            delay: anime.stagger(500)
         })
 
         setAnimated({
