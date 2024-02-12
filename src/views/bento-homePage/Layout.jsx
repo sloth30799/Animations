@@ -1,5 +1,8 @@
-import anime from "animejs"
 import { useEffect, useState } from "react"
+import anime from "animejs"
+
+import StackCards from "/src/components/bento-homePage/StackCards"
+import Navbar from "/src/components/bento-homePage/Navbar"
 
 const Layout = () => {
     const pageLength = 500
@@ -11,10 +14,10 @@ const Layout = () => {
     const flipBox = anime({
         targets: ".title-block",
         rotateX: "180",
-        direction: 'alternate',
+        direction: "alternate",
         autoplay: false,
         duration: 500, // Animation duration in milliseconds
-        easing: "easeInOutQuad"
+        easing: "easeInOutQuad",
     })
 
     useEffect(() => {
@@ -40,26 +43,35 @@ const Layout = () => {
 
         const updatedPage = Math.floor(scrollY / pageLength)
 
-        if(page !== updatedPage) {
+        if (page !== updatedPage) {
             setPage(updatedPage)
         }
-    }
-
-    const handleClick = () => {
-        // flipBox.restart()
     }
 
     window.addEventListener("wheel", handleWheelScroll)
 
     return (
         <main className="flex w-full h-screen">
-            <section className="container flex items-start justify-center w-full h-screen p-2 mx-auto bg-blue-400 shadow-inner">
-                <h1
-                 className="title-block block w-[100px] px-2 py-1 text-center text-white bg-gray-700 border border-purple-900 shadow-md rounded-xl ">
-                    {page}
-                </h1>
+            <section className="container grid w-full h-screen grid-cols-2 gap-2 p-2 mx-auto shadow-inner">
+                <div className="col-span-1">
+                    <StackCards />
+                </div>
 
-                <button onClick={handleClick}>click</button>
+                <div className="flex flex-col items-end justify-start col-span-1">
+                    <Navbar />
+
+                    <div className="mt-8">
+                        <h2 className="text-[1.6rem] font-extrabold text-right italic underline">COOL TEXT</h2>
+                        <h1 className="text-[2.4rem] font-extrabold text-right">SUPER COOL TEXT</h1>
+                        <h1 className="text-[1rem] font-extrabold text-right">SOMEWHAT COOL TEXT</h1>
+
+                        <p className="my-3 text-right">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem et ad, impedit cumque consequatur nulla autem, magni itaque voluptatem aliquam molestias maxime ullam nesciunt commodi labore sapiente odio dicta quasi!</p>
+                    </div>
+                </div>
+                <div className="col-span-1 bg-red-400"></div>
+                <div className="col-span-1 bg-red-400"></div>
+                <div className="col-span-1 bg-red-400"></div>
+                <div className="col-span-1 bg-red-400"></div>
             </section>
             <aside className="w-8 h-screen">
                 <div className="w-1 mx-auto bg-purple-500 scroll-line"></div>
