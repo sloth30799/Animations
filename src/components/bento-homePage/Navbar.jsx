@@ -12,7 +12,7 @@ const Navbar = () => {
                 targets: ".menu-icon",
                 translateX: anime.stagger(-100),
                 easing: 'easeInOutSine',
-                duration: 500,
+                duration: 100,
                 complete: () => {
                     setIsOpen(true)
                 },
@@ -22,7 +22,7 @@ const Navbar = () => {
                 targets: ".menu-icon",
                 translateX: 0,
                 easing: 'easeInOutSine',
-                duration: 500,
+                duration: 100,
                 complete: () => {
                     setIsOpen(false)
                 },

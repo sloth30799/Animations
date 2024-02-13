@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react"
-import anime from "animejs"
+import { useEffect, useState } from 'react'
+import anime from 'animejs'
 
-import StackCards from "/src/components/bento-homePage/StackCards"
-import Navbar from "/src/components/bento-homePage/Navbar"
+import Navbar from '/src/components/bento-homePage/Navbar'
+import CardStack from '../../components/bento-homePage/CardStack'
 
 const Layout = () => {
     const pageLength = 500
@@ -12,20 +12,20 @@ const Layout = () => {
     const [page, setPage] = useState(0)
 
     const flipBox = anime({
-        targets: ".title-block",
-        rotateX: "180",
-        direction: "alternate",
+        targets: '.title-block',
+        rotateX: '180',
+        direction: 'alternate',
         autoplay: false,
         duration: 500, // Animation duration in milliseconds
-        easing: "easeInOutQuad",
+        easing: 'easeInOutQuad',
     })
 
     useEffect(() => {
         console.log(page)
         anime({
-            targets: ".scroll-line",
+            targets: '.scroll-line',
             height: `${100 * (page / pageCount)}vh`,
-            easing: "easeInSine",
+            easing: 'easeInSine',
         })
 
         flipBox.restart()
@@ -48,27 +48,39 @@ const Layout = () => {
         }
     }
 
-    window.addEventListener("wheel", handleWheelScroll)
+    window.addEventListener('wheel', handleWheelScroll)
 
     return (
         <main className="flex w-full h-screen">
             <section className="container grid w-full h-screen grid-cols-2 gap-2 p-2 mx-auto shadow-inner">
-                <div className="col-span-1">
-                    <StackCards />
+                <div className="col-span-1 justify-self-center">
+                    <CardStack />
                 </div>
 
                 <div className="flex flex-col items-end justify-start col-span-1">
                     <Navbar />
 
                     <div className="mt-8">
-                        <h2 className="text-[1.6rem] font-extrabold text-right italic underline">COOL TEXT</h2>
-                        <h1 className="text-[2.4rem] font-extrabold text-right">SUPER COOL TEXT</h1>
-                        <h1 className="text-[1rem] font-extrabold text-right">SOMEWHAT COOL TEXT</h1>
+                        <h2 className="text-[1.6rem] font-extrabold text-right italic underline">
+                            COOL TEXT
+                        </h2>
+                        <h1 className="text-[2.4rem] font-extrabold text-right">
+                            SUPER COOL TEXT
+                        </h1>
+                        <h1 className="text-[1rem] font-extrabold text-right">
+                            SOMEWHAT COOL TEXT
+                        </h1>
 
-                        <p className="my-3 text-right">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem et ad, impedit cumque consequatur nulla autem, magni itaque voluptatem aliquam molestias maxime ullam nesciunt commodi labore sapiente odio dicta quasi!</p>
+                        <p className="my-3 text-right">
+                            Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit. Quidem et ad, impedit cumque consequatur nulla
+                            autem, magni itaque voluptatem aliquam molestias
+                            maxime ullam nesciunt commodi labore sapiente odio
+                            dicta quasi!
+                        </p>
                     </div>
                 </div>
-                <div className="col-span-1 bg-red-400"></div>
+                <div className="col-span-1 "></div>
                 <div className="col-span-1 bg-red-400"></div>
                 <div className="col-span-1 bg-red-400"></div>
                 <div className="col-span-1 bg-red-400"></div>
