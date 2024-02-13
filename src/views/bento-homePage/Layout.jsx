@@ -53,7 +53,7 @@ const Layout = () => {
     return (
         <main className="flex w-full h-screen">
             <section className="container grid w-full h-screen grid-cols-2 gap-2 p-2 mx-auto shadow-inner">
-                <div className="col-span-1 justify-self-center">
+                <div className="col-span-1 pt-12 justify-self-center">
                     <CardStack />
                 </div>
 
@@ -80,7 +80,7 @@ const Layout = () => {
                         </p>
                     </div>
                 </div>
-                <div className="col-span-1 "></div>
+                <div className="col-span-1 bg-red-400"></div>
                 <div className="col-span-1 bg-red-400"></div>
                 <div className="col-span-1 bg-red-400"></div>
                 <div className="col-span-1 bg-red-400"></div>

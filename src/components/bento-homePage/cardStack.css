@@ -1,32 +1,41 @@
 :root {
-    --ease-squish-4: cubic-bezier(.5, -.7, .1, 1.5);
-    --ease-in-out-3: cubic-bezier(.5, 0, .5, 1);
+    --ease-squish-4: cubic-bezier(0.5, -0.7, 0.1, 1.5);
+    --ease-in-out-3: cubic-bezier(0.5, 0, 0.5, 1);
+    --scalar: 8;
 }
 
 .card-stack {
     display: grid;
-    grid: [gui] 1fr / [chan] min(40vmin, 32ch);
-    gap: 3rem;
+    grid: [gui] 1fr / [chan] min(40vmin, 40ch);
 }
 
 .card {
-    aspect-ratio: 3/4;
+    aspect-ratio: 3/2;
     grid-area: gui / chan;
     border-radius: 14px;
-    transform: rotate(var(--r, 0deg)) translateY(var(--t, 0px));
-    transition: transform-origin .5s var(--ease-squish-4), transform .1s var(--ease-in-out-3);
+    transform: rotate(var(--r, 0deg)) translateX(var(--h, 0px));
+    transition: transform-origin 0.5s var(--ease-squish-4),
+        transform 0.1s var(--ease-in-out-3);
 }
 
+.card-stack > .card {
+    transform-origin: top left;
+}
+
+.card:hover {
+    --h: 50px;
+}
+/* 
 .card:nth-of-type(1) {
-    --r: calc(var(--scalar, 5) * 2 * 1deg * -1);
+    --r: calc(var(--scalar, 5) * 1deg * -1);
 }
 
 .card:nth-of-type(2) {
-    --r: calc(var(--scalar, 5) * 2 * 1deg);
+    --r: calc(var(--scalar, 5) * 1deg * 3);
 }
 
 .card:nth-of-type(3) {
-    --r: calc(var(--scalar, 5) * 1deg * -1);
+    --r: calc(var(--scalar, 5) * 1deg * 2);
 }
 
 .card:nth-of-type(4) {
@@ -35,12 +44,4 @@
 
 .card:nth-of-type(5) {
     --r: 0deg;
-}
-
-.card-stack>.card {
-    transform-origin: center 200%;
-}
-
-.card:hover {
-    --t: -50px
-}
+} */
