@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import anime from 'animejs'
 
 import Navbar from '/src/components/bento-homePage/Navbar'
-import CardStack from '../../components/bento-homePage/CardStack'
+import SquareGlitches from '../../components/SquareGlitches'
 
 const Layout = () => {
     const pageLength = 500
@@ -54,7 +54,7 @@ const Layout = () => {
         <main className="flex w-full h-screen">
             <section className="container grid w-full h-screen grid-cols-2 gap-2 p-2 mx-auto shadow-inner">
                 <div className="col-span-1 pt-12 justify-self-center">
-                    <CardStack />
+                    <SquareGlitches />
                 </div>
 
                 <div className="flex flex-col items-end justify-start col-span-1">

@@ -1,0 +1,13 @@
+.square-stack {
+    display: grid;
+    grid: [natsu] 1fr / [lucy] 1fr;
+}
+
+.square {
+    grid-area: natsu / lucy;
+    border-radius: 14px;
+    border: solid 1px black;
+    background-color: transparent;
+    transition: transform-origin 0.5s var(--ease-squish-4),
+        transform 0.5s var(--ease-in-out-3);
+}

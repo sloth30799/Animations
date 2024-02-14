@@ -15,7 +15,7 @@
     border-radius: 14px;
     transform: rotate(var(--r, 0deg)) translateX(var(--h, 0px));
     transition: transform-origin 0.5s var(--ease-squish-4),
-        transform 0.1s var(--ease-in-out-3);
+        transform 0.5s var(--ease-in-out-3);
 }
 
 .card-stack > .card {
