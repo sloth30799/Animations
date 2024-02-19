@@ -1,3 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+    --font-size-sm: clamp(0.7rem, 0.35vw + 0.61rem, 0.89rem);
+    --font-size-base: clamp(0.88rem, 0.57vw + 0.73rem, 1.19rem);
+    --font-size-lg: clamp(1.09rem, 0.89vw + 0.87rem, 1.58rem);
+    --font-size-xl: clamp(1.37rem, 1.35vw + 1.03rem, 2.11rem);
+    --font-size-2xl: clamp(1.71rem, 2.01vw + 1.21rem, 2.81rem);
+    --font-size-3xl: clamp(2.14rem, 2.93vw + 1.4rem, 3.75rem);
+    --font-size-4xl: clamp(2.67rem, 4.23vw + 1.61rem, 5rem);
+    --font-size-5xl: clamp(3.34rem, 6.04vw + 1.83rem, 6.66rem);
+    --font-size-6xl: clamp(4.17rem, 8.56vw + 2.03rem, 8.88rem);
+}
+
+.anton {
+    font-family: "Anton", serif;
+    font-weight: 400;
+}
+
+.josefin-sans {
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
+}
+
+* {
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Anton", serif;
+}

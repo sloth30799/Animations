@@ -21,7 +21,6 @@ const Layout = () => {
     })
 
     useEffect(() => {
-        console.log(page)
         anime({
             targets: '.scroll-line',
             height: `${100 * (page / pageCount)}vh`,

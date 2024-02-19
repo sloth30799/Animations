@@ -1,7 +1,7 @@
-import Layout from "./views/bento-homePage/Layout"
+import BentoLayout from "./views/bento-homePage/BentoLayout"
 
 const App = () => {
-    return <Layout />
+    return <BentoLayout />
 }
 
 export default App

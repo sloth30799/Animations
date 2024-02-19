@@ -35,8 +35,8 @@ const SquareGlitches = () => {
                     },
                     duration: 1000,
                 },
-                { opacity: 1, backgroundColor: '#fff', duration: 150 },
-                { opacity: 0, duration: 150 },
+                { opacity: 1, duration: 150 },
+                // { opacity: 0, duration: 150 },
             ],
             easing: 'easeInSine',
         })
