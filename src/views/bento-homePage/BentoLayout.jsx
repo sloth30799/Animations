@@ -1,3 +1,5 @@
+import SliderCards from "../../components/SliderCards"
+
 const BentoLayout = () => {
     return (
         <div className="bg-black bg-opacity-90">
@@ -47,7 +49,9 @@ const BentoLayout = () => {
                                 memorable experiences.
                             </p>
                         </div>
-                        <div className="col-span-1 bg-purple-400 rounded-2xl"></div>
+                        <div className="col-span-1 bg-purple-400 rounded-2xl">
+                            <SliderCards />
+                        </div>
                     </div>
                     <div className="grid grid-cols-3 row-span-1 lg:gap-4 xl:gap-6 rounded-2xl">
                         <div className="grid col-span-1 bg-purple-400 rounded-2xl">
