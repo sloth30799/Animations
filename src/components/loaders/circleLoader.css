@@ -1,0 +1,28 @@
+
+.loader-border {
+    display: grid;
+    grid: [one] 1fr / [two] 1fr;
+}
+
+.loader-circle {
+    grid-area: one / two;
+    justify-self: center;
+    align-self: center;
+}
+
+.loader-border h4 {
+    grid-area: one / two;
+    justify-self: center;
+    align-self: center;
+}
+
+.loader-text {
+    display: grid;
+    grid: [letter-one] 1fr / [letter-two] 1fr;
+}
+
+.loader-text .letters {
+    grid-area: letter-one / letter-two;
+    justify-self: center;
+    align-self: center;
+}
