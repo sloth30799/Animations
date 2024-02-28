@@ -34,15 +34,10 @@ const SliderCards = () => {
         },
     ]
 
-    const handleBtnNavigation = (index) => {
-        const slide = document.getElementById(`slide-${index}`)
-        slide.scrollIntoView({
-            behavior: 'smooth',
-            block: 'end',
-            inline: 'nearest',
-        })
-    }
-
+    const slider = useRef(null)
+    const [isDown, setIsDown] = useState(false)
+    const [startX, setStartX] = useState(null)
+    const [scrollLeft, setScrollLeft] = useState(null)
     const [activeSlide, setActiveSlide] = useState(0)
 
     useEffect(() => {
@@ -73,25 +68,34 @@ const SliderCards = () => {
         }
     }, [])
 
-    const slider = useRef(null)
-    const [isDown, setIsDown] = useState(false)
-    const [startX, setStartX] = useState(null)
-    const [scrollLeft, setScrollLeft] = useState(null)
+    const handleBtnNavigation = (direction) => {
+        const activeSlideArr = activeSlide.split('-')
+
+        if (direction === 1) {
+            const slide = document.getElementById(
+                `slide-${Number(activeSlideArr[1]) + 1}`
+            )
+            slide.scrollIntoView({
+                behavior: 'smooth',
+                block: 'end',
+                inline: 'nearest',
+            })
+        } else {
+            const slide = document.getElementById(
+                `slide-${Number(activeSlideArr[1]) - 1}`
+            )
+            slide.scrollIntoView({
+                behavior: 'smooth',
+                block: 'end',
+                inline: 'nearest',
+            })
+        }
+    }
 
     const handleMouseDown = (e) => {
         setIsDown(true)
         setStartX(e.pageX - slider.current.offsetLeft)
         setScrollLeft(slider.current.scrollLeft)
-    }
-
-    const handleMouseLeave = () => {
-        setIsDown(false)
-
-        const slide = document.getElementById(`${activeSlide}`)
-        slide.scrollIntoView({
-            behavior: 'smooth',
-            block: 'end',
-        })
     }
 
     const handleMouseUp = () => {
@@ -114,37 +118,43 @@ const SliderCards = () => {
     }
 
     return (
-        <section
-            ref={slider}
-            onMouseDown={handleMouseDown}
-            onMouseLeave={handleMouseLeave}
-            onMouseUp={handleMouseUp}
-            onMouseMove={handleMouseMove}
-            className="flex w-full h-full gap-3 overflow-auto bg-red-500 rounded-2xl"
-        >
-            {cards.map((c, index) => (
-                <div
-                    id={`slide-${index}`}
-                    className="flex-shrink-0 w-full h-full slider-item active:cursor-grabbing"
-                    key={c.name}
+        <section className="relative w-full h-full px-10 pt-20">
+            <div
+                ref={slider}
+                onMouseDown={handleMouseDown}
+                onMouseLeave={handleMouseUp}
+                onMouseUp={handleMouseUp}
+                onMouseMove={handleMouseMove}
+                className="flex w-full h-full gap-3 overflow-hidden"
+            >
+                {cards.map((c, index) => (
+                    <div
+                        id={`slide-${index}`}
+                        className="flex flex-col flex-shrink-0 w-full h-full slider-item active:cursor-grabbing"
+                        key={c.name}
+                    >
+                        <p>{c.comment}</p>
+                        <div className="mt-auto">
+                            <h5 className="text-right">{c.name}</h5>
+                            <p className="text-right">{c.title}</p>
+                        </div>
+                    </div>
+                ))}
+            </div>
+            <div className="absolute bottom-0 left-0 flex items-center p-3">
+                <button
+                    className="block p-3 m-1 text-lg bg-blue-500 rounded-xl"
+                    onClick={() => handleBtnNavigation(0)}
                 >
-                    <p>{c.comment}</p>
-                    <h5>{c.name}</h5>
-                    <span>{c.title}</span>
-                    <button
-                        className="block p-3 m-1 text-lg bg-blue-500 rounded-xl"
-                        onClick={() => handleBtnNavigation(index + 1)}
-                    >
-                        {'>'}
-                    </button>
-                    <button
-                        className="block p-3 m-1 text-lg bg-blue-500 rounded-xl"
-                        onClick={() => handleBtnNavigation(index - 1)}
-                    >
-                        {'<'}
-                    </button>
-                </div>
-            ))}
+                    {'<'}
+                </button>
+                <button
+                    className="block p-3 m-1 text-lg bg-blue-500 rounded-xl"
+                    onClick={() => handleBtnNavigation(1)}
+                >
+                    {'>'}
+                </button>
+            </div>
         </section>
     )
 }
