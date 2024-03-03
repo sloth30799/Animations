@@ -52,7 +52,7 @@ const TextParallax = () => {
 	const activeIndexCondition = Math.floor(scrollPosition / oneItemHeight)
 
 	return (
-		<section className="w-full">
+		<section className="container mx-auto">
 			<div className="sticky top-0 flex flex-col justify-between w-full h-screen bg-slate-400">
 				<h4 className="py-3 text-lg text-center underline underline-offset-2">Text Parallax</h4>
 				<div className="flex items-center justify-center h-full">
