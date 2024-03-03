@@ -1,7 +1,7 @@
-import BentoLayout from "./views/bento-homePage/BentoLayout"
+import { TextParallax } from "./components/parallax"
 
 const App = () => {
-    return <BentoLayout />
+	return <TextParallax />
 }
 
 export default App
